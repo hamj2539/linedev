@@ -48,7 +48,7 @@ $result = mysqli_query($conn,$sql);
 <div>
 <a type="button" class="btn btn-secondary btn-sm" style="margin-top:10px; margin-right:40%;margin-left:45px;border-radius:50%;font-size:12;height:30px" href = "edit.php">Add new User</a>
 </div>
-<div class="table-responsive-sm" style="margin-top:10px;margin-left:25px;margin-right:25px">
+<div class="table-responsive" style="margin-top:10px;margin-left:25px;margin-right:25px">
   <table class="table">
   <tr>
         <th>ชื่อ</th>
