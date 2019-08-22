@@ -40,8 +40,8 @@ include 'conn.php';
         $id = $_GET['eid'];
 
         $sqle = "SELECT * FROM user WHERE id = '".$id."'";
-        $result = mysqli_query($conn,$sqle);
-        $rse = mysqli_fetch_array($result);
+        $result = $conn->prepare($sqle);
+        $rse = $result->fetch(PDO::FETCH_ASSOC);
 
         $firstname = $rse['firstname'];
         $lastname = $rse['lastname'];
@@ -57,7 +57,7 @@ include 'conn.php';
         $u = $_POST['u'];
         $sqli = "INSERT INTO user (firstname, lastname, username, password, tel, email, user_type) 
         VALUE ('".$u['firstname']."','".$u['lastname']."','".$u['username']."','".$u['password']."','".$u['tel']."','".$u['email']."','".$u['user_type']."')";
-        $rs = mysqli_query($conn,$sqli);
+        $rs = $conn->query($sqli);
     }
 
     if(isset($_POST['u']['edit'])) {
@@ -71,7 +71,7 @@ include 'conn.php';
                 email='".$u['email']."',
                 user_type='".$u['user_type']."'
                 WHERE id = '".$u['id']."'";
-                $rsu = mysqli_query($conn,$sqlu);
+                $rsu = $conn->query($sqlu);
     }
 ?>
   <body>
