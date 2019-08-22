@@ -6,7 +6,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Web App Test</title>
+    <title>WebApp</title>
 </head>
 <style>
 th{
@@ -26,11 +26,11 @@ include 'conn.php';
 
 if(isset($_GET['did'])){
   $sqld = "DELETE FROM user WHERE id = '".$_GET['did']."'";
-  $rsd = mysqli_query($conn,$sqld);
+  $rsd = $conn->query($sqld);
 }
 
 $sql = "SELECT * FROM user";
-$result = mysqli_query($conn,$sql);
+$result = $conn->prepare($sql);
 
 ?>
 <body>
@@ -46,21 +46,21 @@ $result = mysqli_query($conn,$sql);
     </div>
 <!-- <button type="button" class="btn btn-primary btn-lg btn-block" style="margin-top:20px">Add new User</button> -->
 <div>
-<a type="button" class="btn btn-secondary btn-sm" style="margin-top:10px; margin-right:40%;margin-left:45px;border-radius:50%;font-size:12;height:30px" href = "edit.php">Add new User</a>
+<a type="button" class="btn btn-secondary btn-sm" style="margin-top:10px; margin-right:40%;margin-left:45px;font-size:12;height:30px" href = "edit.php">Add new User</a>
 </div>
 <div class="table-responsive" style="margin-top:10px;margin-left:25px;margin-right:25px">
   <table class="table">
   <tr>
         <th>ชื่อ</th>
         <th>นามสกุล</th>
-        <th>Username</th>
-        <th>Password</th>
+        <th>น้ำหนัก</th>
+        <th>ส่วนสูง</th>
         <th>Email</th>
         <th>เบอร์โทร</th>
         <th>กลุ่มผู้ใช้</th>
         <th>เพิ่มเติม</th>
     </tr>
-    <?php while($rs = mysqli_fetch_array($result)) { ?>
+    <?php while($rs = $result->fetch(PDO::FETCH_ASSOC)) { ?>
     <tr class = "serif">
         <td><?php echo $rs['firstname']?></td>
         <td><?php echo $rs['lastname']?></td>
