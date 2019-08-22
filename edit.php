@@ -110,13 +110,13 @@ include 'conn.php';
         <div class="input-group-prepend" style="margin-left:20px">
             <span class="input-group-text" style="width:100px">height</span>
         </div>
-        <input type="number" name="u[username]" class="form-control" required autocomplete="off" placeholder="0.00 cm" aria-label="0.00 cm" style="margin-right:20px" value = "<?php echo $username?>">
+        <input type="number" name="u[username]" class="form-control" required autocomplete="off" placeholder="0 cm" aria-label="0 cm" style="margin-right:20px" value = "<?php echo $username?>">
     </div>
     <div class="input-group">
         <div class="input-group-prepend" style="margin-left:20px">
             <span class="input-group-text" style="width:100px">weight</span>
         </div>
-        <input type="number" name="u[password]" class="form-control" required autocomplete="off" placeholder="0.00 kg" aria-label="0.00 kg" style="margin-right:20px" value = "<?php echo $password?>">
+        <input type="number" name="u[password]" class="form-control" required autocomplete="off" placeholder="0 kg" aria-label="0 kg" style="margin-right:20px" value = "<?php echo $password?>">
     </div>
     <div class="input-group">
         <div class="input-group-prepend" style="margin-left:20px">
