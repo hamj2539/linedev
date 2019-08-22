@@ -86,7 +86,7 @@ include 'conn.php';
     </div>
     </div>
     </div>
-    <h3 style="margin-top:10px;margin-left:40px">เพิ่มข้อมูล</h3>
+    <h3 style="margin-top:10px;margin-left:40px">Insert Data</h3>
     <form method="post" action=" <?php echo $_SERVER['PHP_SELF'] ?>">
     <?php if(isset($_GET['eid'])) {?>
         <input type="hidden" name="u[edit]" value="1">
@@ -122,13 +122,13 @@ include 'conn.php';
         <div class="input-group-prepend" style="margin-left:20px">
             <span class="input-group-text" style="width:100px">Tel</span>
         </div>
-        <input type="text" name="u[tel]" class="form-control" required autocomplete="off" placeholder="XXX-XXX-XXXX" aria-label="XXX-XXX-XXXX" style="margin-right:20px" value = "<?php echo $tel?>">
+        <input type="tel" name="u[tel]" class="form-control" required autocomplete="off" placeholder="XXX-XXX-XXXX" aria-label="XXX-XXX-XXXX" style="margin-right:20px" value = "<?php echo $tel?>" maxlength=10 minlength=10>
     </div>
     <div class="input-group">
         <div class="input-group-prepend" style="margin-left:20px">
             <span class="input-group-text" style="width:100px">E-mail</span>
         </div>
-        <input type="text" name="u[email]" class="form-control" required autocomplete="off" placeholder="example@example.com" aria-label="example@example.com" style="margin-right:20px" value = "<?php echo $email?>">
+        <input type="email" name="u[email]" class="form-control" required autocomplete="off" placeholder="example@example.com" aria-label="example@example.com" style="margin-right:20px" value = "<?php echo $email?>">
     </div>
 
     <div class="input-group mb-3">
