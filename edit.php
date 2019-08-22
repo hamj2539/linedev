@@ -104,25 +104,25 @@ include 'conn.php';
         <div class="input-group-prepend" style="margin-left:20px;">
             <span class="input-group-text" style="width:100px">Lastname</span>
         </div>
-        <input type="text" name="u[firstname]" class="form-control" required autocomplete="off" placeholder="Lastname" aria-label="Firstname" style="margin-right:20px;" value = "<?php echo $lastname?>">
+        <input type="text" name="u[lastname]" class="form-control" required autocomplete="off" placeholder="Lastname" aria-label="Lasttname" style="margin-right:20px;" value = "<?php echo $lastname?>">
     </div>
     <div class="input-group">
         <div class="input-group-prepend" style="margin-left:20px">
-            <span class="input-group-text" style="width:100px">Username</span>
+            <span class="input-group-text" style="width:100px">height</span>
         </div>
-        <input type="text" name="u[username]" class="form-control" required autocomplete="off" placeholder="Username" aria-label="Username" style="margin-right:20px" value = "<?php echo $username?>">
+        <input type="number" name="u[username]" class="form-control" required autocomplete="off" placeholder="0.00 cm" aria-label="0.00 cm" style="margin-right:20px" value = "<?php echo $username?>">
     </div>
     <div class="input-group">
         <div class="input-group-prepend" style="margin-left:20px">
-            <span class="input-group-text" style="width:100px">Password</span>
+            <span class="input-group-text" style="width:100px">weight</span>
         </div>
-        <input type="text" name="u[password]" class="form-control" required autocomplete="off" placeholder="Password" aria-label="Password" style="margin-right:20px" value = "<?php echo $password?>">
+        <input type="number" name="u[password]" class="form-control" required autocomplete="off" placeholder="0.00 kg" aria-label="0.00 kg" style="margin-right:20px" value = "<?php echo $password?>">
     </div>
     <div class="input-group">
         <div class="input-group-prepend" style="margin-left:20px">
             <span class="input-group-text" style="width:100px">Tel</span>
         </div>
-        <input type="tel" name="u[tel]" class="form-control" required autocomplete="off" placeholder="XXX-XXX-XXXX" aria-label="XXX-XXX-XXXX" style="margin-right:20px" value = "<?php echo $tel?>" maxlength=10 minlength=10>
+        <input type="tel" name="u[tel]" class="form-control" required autocomplete="off" placeholder="XXX-XXX-XXXX" aria-label="XXX-XXX-XXXX" style="margin-right:20px" value = "<?php echo $tel?>" maxlength="10">
     </div>
     <div class="input-group">
         <div class="input-group-prepend" style="margin-left:20px">
@@ -137,8 +137,10 @@ include 'conn.php';
         </div>
         <select class="custom-select"  name="u[user_type]" style="margin-right:20px">
             <option selected value = "<?php echo $user_type?>">Choose...</option>
-            <option value="admin" <?php if($user_type == "admin") {?>selected="selected"<?php }?>>Admin</option>
-            <option value="exe" <?php if($user_type == "exe") {?>selected="selected"<?php }?>>ผู้ใช้ทั่วไป</option>
+            <option value="child" <?php if($user_type == "child") {?>selected="selected"<?php }?>>เด็ก</option>
+            <option value="teens" <?php if($user_type == "teens") {?>selected="selected"<?php }?>>วัยรุ่น</option>
+            <option value="working age" <?php if($user_type == "working age") {?>selected="selected"<?php }?>>วัยทำงาน</option>
+            <option value="elderly" <?php if($user_type == "elderly") {?>selected="selected"<?php }?>>ผู้สูงอายุ</option>
         </select>
     </div>
         <div>
