@@ -1,8 +1,8 @@
 <?php
 
-    $host = '192.168.16.130';
+    $host = 'localhost';
     $user = 'root';
-    $pass = 'Sundae1234#';
+    $pass = '';
     $dbname = 'linewebapp';
 
 
