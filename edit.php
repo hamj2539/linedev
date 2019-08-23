@@ -36,33 +36,35 @@ include 'conn.php';
     $tel = null;
     $email = null;
     $user_type = null;
+  
     if(isset($_GET['eid'])){
         $id = $_GET['eid'];
 
-        $sqle = "SELECT * FROM user WHERE id = '".$id."'";
-        $result = $conn->prepare($sqle);
-        $rse = $result->fetch(PDO::FETCH_ASSOC);
+        $sqle = $conn->prepare("SELECT * FROM [linedev].[dbo].[user] WHERE id = :id");
+        $sqle->bindParam(':id',$id);
+        $sqle->execute();
+        $rs = $sqle->fetch(PDO::FETCH_ASSOC);
 
-        $firstname = $rse['firstname'];
-        $lastname = $rse['lastname'];
-        $username = $rse['username'];
-        $password = $rse['password'];
-        $tel = $rse['tel'];
-        $email = $rse['email'];
-        $user_type = $rse['user_type'];
-        $userid = $rse['id'];
+        $firstname = $rs['firstname'];
+        $lastname = $rs['lastname'];
+        $username = $rs['username'];
+        $password = $rs['password'];
+        $tel = $rs['tel'];
+        $email = $rs['email'];
+        $user_type = $rs['user_type'];
+        $userid = $rs['id'];
 
     }
     if(isset($_POST['u']['insert'])){
         $u = $_POST['u'];
-        $sqli = "INSERT INTO user (firstname, lastname, username, password, tel, email, user_type) 
-        VALUE ('".$u['firstname']."','".$u['lastname']."','".$u['username']."','".$u['password']."','".$u['tel']."','".$u['email']."','".$u['user_type']."')";
-        $rs = $conn->query($sqli);
+        $sqla = "INSERT INTO [linedev].[dbo].[user] (firstname, lastname, username, password, tel, email, user_type) 
+        VALUES ('".$u['firstname']."','".$u['lastname']."','".$u['username']."','".$u['password']."','".$u['tel']."','".$u['email']."','".$u['user_type']."')";
+        $sqli = $conn->query($sqla);
     }
-
+  
     if(isset($_POST['u']['edit'])) {
         $u = $_POST['u'];
-        $sqlu = "UPDATE user SET 
+        $sqlu = "UPDATE [linedev].[dbo].[user] SET 
                 firstname='".$u['firstname']."',
                 lastname='".$u['lastname']."',
                 username='".$u['username']."',
@@ -88,7 +90,7 @@ include 'conn.php';
     </div>
     <h3 style="margin-top:10px;margin-left:40px">Insert Data</h3>
     <form method="post" action=" <?php echo $_SERVER['PHP_SELF'] ?>">
-    <?php if(isset($_GET['eid'])) {?>
+    <?php if(isset($_GET['eid'])) { ?>
         <input type="hidden" name="u[edit]" value="1">
         <input type="hidden" name="u[id]" value="<?php echo $userid;?>">
     <?php }else{ ?>
