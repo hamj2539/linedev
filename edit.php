@@ -40,7 +40,7 @@ include 'conn.php';
     if(isset($_GET['eid'])){
         $id = $_GET['eid'];
 
-        $sqle = $conn->prepare("SELECT * FROM [linedev].[dbo].[user] WHERE id = :id");
+        $sqle = $conn->prepare("SELECT * FROM [user] WHERE id = :id");
         $sqle->bindParam(':id',$id);
         $sqle->execute();
         $rs = $sqle->fetch(PDO::FETCH_ASSOC);
@@ -57,14 +57,14 @@ include 'conn.php';
     }
     if(isset($_POST['u']['insert'])){
         $u = $_POST['u'];
-        $sqla = "INSERT INTO [linedev].[dbo].[user] (firstname, lastname, username, password, tel, email, user_type) 
+        $sqla = "INSERT INTO [user] (firstname, lastname, username, password, tel, email, user_type) 
         VALUES ('".$u['firstname']."','".$u['lastname']."','".$u['username']."','".$u['password']."','".$u['tel']."','".$u['email']."','".$u['user_type']."')";
         $sqli = $conn->query($sqla);
     }
   
     if(isset($_POST['u']['edit'])) {
         $u = $_POST['u'];
-        $sqlu = "UPDATE [linedev].[dbo].[user] SET 
+        $sqlu = "UPDATE [user] SET 
                 firstname='".$u['firstname']."',
                 lastname='".$u['lastname']."',
                 username='".$u['username']."',
