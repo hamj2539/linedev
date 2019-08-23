@@ -96,7 +96,7 @@ include 'conn.php';
     <?php }else{ ?>
         <input type="hidden" name="u[insert]" value="1">
     <?php } ?>
-    <div class="input-group" style="margin-top:10px">
+    <div class="input-group" style="margin-top:20px">
         <div class="input-group-prepend" style="margin-left:20px;">
             <span class="input-group-text" style="width:100px">Firstname</span>
         </div>
