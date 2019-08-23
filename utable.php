@@ -25,12 +25,12 @@ body {
 include 'conn.php';
 
 if(isset($_GET['did'])){
-  $sqld = "DELETE FROM user WHERE id = '".$_GET['did']."'";
+  $sqld = "DELETE FROM [linedev].[dbo].[user] WHERE id = '".$_GET['did']."'";
   $rsd = $conn->query($sqld);
 }
 
-$sql = "SELECT * FROM user";
-$result = $conn->prepare($sql);
+$sql = "SELECT * FROM [linedev].[dbo].[user]";
+$result = $conn->query($sql);
 
 ?>
 <body>
@@ -60,8 +60,9 @@ $result = $conn->prepare($sql);
         <th>กลุ่มผู้ใช้</th>
         <th>เพิ่มเติม</th>
     </tr>
-    <?php while($rs = $result->fetch(PDO::FETCH_ASSOC)) { ?>
+    <?php  while($rs = $result->fetch(PDO::FETCH_ASSOC)) {  ?>
     <tr class = "serif">
+    
         <td><?php echo $rs['firstname']?></td>
         <td><?php echo $rs['lastname']?></td>
         <td><?php echo $rs['username']?></td>
