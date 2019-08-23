@@ -88,7 +88,7 @@ include 'conn.php';
     </div>
     </div>
     </div>
-    <h3 style="margin-top:10px;margin-left:40px">Insert Data</h3>
+    <!-- <h3 style="margin-top:10px;margin-left:40px">Insert Data</h3> -->
     <form method="post" action=" <?php echo $_SERVER['PHP_SELF'] ?>">
     <?php if(isset($_GET['eid'])) { ?>
         <input type="hidden" name="u[edit]" value="1">
@@ -96,7 +96,7 @@ include 'conn.php';
     <?php }else{ ?>
         <input type="hidden" name="u[insert]" value="1">
     <?php } ?>
-    <div class="input-group">
+    <div class="input-group" style="margin-top:10px">
         <div class="input-group-prepend" style="margin-left:20px;">
             <span class="input-group-text" style="width:100px">Firstname</span>
         </div>
