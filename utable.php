@@ -34,9 +34,12 @@ $result = $conn->query($sql);
 
 ?>
 <body>
-<div class="btn-group" style="margin-top:20px; margin-left:20px;width:150px;height:40px">
-    <button type="button" class="btn btn-secondary dropdown-toggle" data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-        Data User
+<div class="btn-group" style="margin-top:20px; margin-left:20px;width:160px;height:50px">
+<button class="btn btn-secondary btn-lg" type="button">
+  Data User
+  </button>
+    <button type="button" class="btn btn-secondary dropdown-toggle dropdown-toggle-split" data-display="static" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    <span class="sr-only">Toggle Dropdown</span>
     </button>
     <div class="dropdown-menu dropdown-menu-lg-left">
         <a class="dropdown-item" href="home.php">Home</a>
