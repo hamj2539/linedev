@@ -25,11 +25,11 @@ body {
 include 'conn.php';
 
 if(isset($_GET['did'])){
-  $sqld = "DELETE FROM [linedev].[dbo].[user] WHERE id = '".$_GET['did']."'";
+  $sqld = "DELETE FROM [user] WHERE id = '".$_GET['did']."'";
   $rsd = $conn->query($sqld);
 }
 
-$sql = "SELECT * FROM [linedev].[dbo].[user]";
+$sql = "SELECT * FROM [user]";
 $result = $conn->query($sql);
 
 ?>
