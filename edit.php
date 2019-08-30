@@ -88,10 +88,11 @@ include 'conn.php';
         <a class="dropdown-item" href="home.php">Home</a>
         <a class="dropdown-item" href="utable.php">Data User</a>
         <a class="dropdown-item" href="edit.php">Edit User</a>
+        <a class="dropdown-item" href="register.php">Register</a>
+        <a class="dropdown-item" href="profile.php">Profile</a>
     </div>
     </div>
     </div>
-    <!-- <h3 style="margin-top:10px;margin-left:40px">Insert Data</h3> -->
     <form method="post" action=" <?php echo $_SERVER['PHP_SELF'] ?>">
     <?php if(isset($_GET['eid'])) { ?>
         <input type="hidden" name="u[edit]" value="1">

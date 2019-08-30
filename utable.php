@@ -45,9 +45,10 @@ $result = $conn->query($sql);
         <a class="dropdown-item" href="home.php">Home</a>
         <a class="dropdown-item" href="utable.php">Data User</a>
         <a class="dropdown-item" href="edit.php">Edit User</a>
+        <a class="dropdown-item" href="register.php">Register</a>
+        <a class="dropdown-item" href="profile.php">Profile</a>
     </div>
     </div>
-<!-- <button type="button" class="btn btn-primary btn-lg btn-block" style="margin-top:20px">Add new User</button> -->
 <div>
 <a type="button" class="btn btn-secondary btn-sm" style="margin-top:10px; margin-right:40%;margin-left:45px;font-size:12;height:30px" href = "edit.php">Add new User</a>
 </div>
@@ -73,7 +74,7 @@ $result = $conn->query($sql);
         <td><?php echo $rs['email']?></td>
         <td><?php echo $rs['tel']?></td>
         <td><?php echo $rs['user_type']?></td>
-        <td >
+        <td>
         <a class="btn btn-link" href = "edit.php?eid=<?php echo $rs['id'];?>">แก้ไข</a> 
         <a class="btn btn-link" href = "<?php echo $_SERVER['PHP_SELF'];?>?did=<?php echo $rs['id'];?>" onclick = "return confirm('ต้องการลบใช่หรือไม่');">ลบ</a> 
         </td>

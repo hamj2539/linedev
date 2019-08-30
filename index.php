@@ -35,6 +35,7 @@
         <a class="dropdown-item" href="home.php">Home</a>
         <a class="dropdown-item" href="utable.php">Data User</a>
         <a class="dropdown-item" href="edit.php">Edit User</a>
+        <a class="dropdown-item" href="register.php">Register</a>
     </div>
     </div>
     <!-- Optional JavaScript -->
