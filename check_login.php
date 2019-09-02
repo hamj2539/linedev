@@ -1,3 +1,4 @@
+
 <?php
     include 'conn.php';
 
@@ -13,7 +14,11 @@
 	
 	if(!$rs)
 	{
-			echo "Username and Password Incorrect!";
+			// alert("Username and Password Incorrect!");
+				echo '<script type="text/javascript">
+        	  	window.onload = function () { alert("Your User and Password Incorrect!"); }
+				</script>';
+				header("location:login.php");
 	}
 	else
 	{

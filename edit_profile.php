@@ -27,6 +27,7 @@
 <?php 
     include 'conn.php';
     session_start();
+    
     if(isset($_SESSION['id'])){
         $id = $_SESSION['id'];
         $sqle = $conn->prepare("SELECT * FROM [profile] WHERE id = :id");
@@ -45,17 +46,17 @@
         $picture = $rs['picture'];
 
         $sqlu = "UPDATE [profile] SET 
-                firstname='".$id['firstname']."',
-                lastname='".$id['lastname']."',
-                height='".$id['height']."',
-                weight='".$id['weight']."',
-                tel='".$id['tel']."', 
-                email='".$id['email']."',
-                birthday='".$id['birthday']."',
-                age='".$id['age']."'
+                id= '".$_SESSION['id']."',
+                firstname='".$rs['firstname']."',
+                lastname='".$rs['lastname']."',
+                height='".$rs['height']."',
+                weight='".$rs['weight']."',
+                tel='".$rs['tel']."', 
+                email='".$rs['email']."',
+                birthday='".$rs['birthday']."',
+                age='".$rs['age']."'
                 WHERE id = '".$id."'";
                 $rsu = $conn->query($sqlu);
-    }
 ?>
   
   <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
@@ -97,7 +98,7 @@
                         <div class="input-group-prepend" style="margin-left:7%;">
                             <span class="input-group-text" style="width:100px;">ชื่อ</span>
                         </div>
-                        <input type="text" name="id[firstname]" id="id[firstname]" class="form-control" required autocomplete="off" style="margin-right:20px;" value="<?php echo $firstname?>">
+                        <input type="text" name="rs[firstname]" id="rs[firstname]" class="form-control" required autocomplete="off" style="margin-right:20px;" value="<?php echo $firstname?>">
                      </div>
                 </div>
                 <div class="col-sm-5" style="margin-top:10px">
@@ -105,7 +106,7 @@
                         <div class="input-group-prepend" style="margin-left:7%;">
                             <span class="input-group-text" style="width:100px">นามสกุล</span>
                         </div>
-                        <input type="text" name="id[lastname]" id="id[lastname]" class="form-control" required autocomplete="off" style="margin-right:20px;" value="<?php echo $lastname?>">
+                        <input type="text" name="rs[lastname]" id="rs[lastname]" class="form-control" required autocomplete="off" style="margin-right:20px;" value="<?php echo $lastname?>">
                      </div>
                 </div>
             </div>
@@ -115,7 +116,7 @@
                         <div class="input-group-prepend" style="margin-left:7%;">
                             <span class="input-group-text" style="width:100px;">เกิดวันที่</span>
                         </div>
-                        <input type="text" name="id[birthday]" id="id[birthday]" class="form-control" required autocomplete="off" style="margin-right:20px;" value = "<?php echo $birthday?>">
+                        <input type="text" name="rs[birthday]" id="rs[birthday]" class="form-control" required autocomplete="off" style="margin-right:20px;" value = "<?php echo $birthday?>">
                      </div>
                 </div>
                 <div class="col-sm-5" style="margin-top:10px">
@@ -123,7 +124,7 @@
                         <div class="input-group-prepend" style="margin-left:7%;">
                             <span class="input-group-text" style="width:100px">อายุ</span>
                         </div>
-                        <input type="text" name="id[age]" id="id[age]" class="form-control" required autocomplete="off" style="margin-right:20px;" value="<?php echo $age?>">
+                        <input type="text" name="rs[age]" id="rs[age]" class="form-control" required autocomplete="off" style="margin-right:20px;" value="<?php echo $age?>">
                      </div>
                 </div>
             </div>
@@ -133,7 +134,7 @@
                         <div class="input-group-prepend" style="margin-left:7%;">
                             <span class="input-group-text" style="width:100px;">น้ำหนัก</span>
                         </div>
-                        <input type="text" name="id[weight]" id="id[weight]" class="form-control" required autocomplete="off" style="margin-right:20px;" value="<?php echo $weight?>">
+                        <input type="text" name="rs[weight]" id="rs[weight]" class="form-control" required autocomplete="off" style="margin-right:20px;" value="<?php echo $weight?>">
                      </div>
                 </div>
                 <div class="col-sm-5" style="margin-top:10px">
@@ -141,32 +142,38 @@
                         <div class="input-group-prepend" style="margin-left:7%;">
                             <span class="input-group-text" style="width:100px">ส่วนสูง</span>
                         </div>
-                        <input type="text" name="id[height]" id="id[height]" class="form-control" required autocomplete="off" style="margin-right:20px;" value="<?php echo $height?>">
+                        <input type="text" name="rs[height]" id="rs[height]" class="form-control" required autocomplete="off" style="margin-right:20px;" value="<?php echo $height?>">
                      </div>
                 </div>
             </div>
-            <div class="row" style="margin-left:10px;margin-bottom:5%">
+            <div class="row" style="margin-left:10px;margin-bottom:2%">
                 <div class="col-sm-5" style="margin-top:10px;">
                     <div class="input-group">
                         <div class="input-group-prepend" style="margin-left:7%">
                             <span class="input-group-text" style="width:100px;">Tel</span>
                         </div>
-                        <input type="text" name="id[tel]" id="id[tel]" class="form-control" required autocomplete="off" style="margin-right:20px;" value="<?php echo $tel?>">
+                        <input type="text" name="rs[tel]" id="rs[tel]" class="form-control" required autocomplete="off" style="margin-right:20px;" value="<?php echo $tel?>">
                      </div>
                 </div>
-                <div class="col-sm-5" style="margin-top:10px;margin-bottom:5%">
+                <div class="col-sm-5" style="margin-top:10px;margin-bottom:2%">
                      <div class="input-group">
                         <div class="input-group-prepend" style="margin-left:7%;">
                             <span class="input-group-text" style="width:100px">E-mail</span>
                         </div>
-                        <input type="text" name="id[email]" id="id[email]" class="form-control" required autocomplete="off" style="margin-right:20px;" value="<?php echo $email?>">
+                        <input type="text" name="rs[email]" id="rs[email]" class="form-control" required autocomplete="off" style="margin-right:20px;" value="<?php echo $email?>">
                      </div>
                 </div>
             </div>
+        <div>
+          <td><input class="btn btn-secondary" type = "submit" value = "บันทึก" style="margin-left:15%;margin-bottom:5%"></td>
+        </div>
     </div>
-    <div>
-            <td><input class="btn btn-secondary" type = "submit" value = "บันทึก" style="margin-left:20px;"></td>
-    </div>
+    
+    <?php 
+        } else {
+            header('Location: login.php');
+        }
+    ?>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

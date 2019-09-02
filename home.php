@@ -23,6 +23,18 @@
         background-color: GhostWhite;
     }
 </style>
+<?php
+  include 'conn.php';
+  session_start();
+  if(isset($_SESSION['id'])){
+    $log = $_SESSION['id'];
+    $sql = $conn->prepare("SELECT * FROM [profile] WHERE id =:id");
+    $sql->bindParam(":id",$log);
+    $sql->execute();
+    $rs = $sql->fetch(PDO::FETCH_ASSOC);
+
+    $firstname = $rs['firstname'];
+?>
 
   <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo01" aria-controls="navbarTogglerDemo01" aria-expanded="false" aria-label="Toggle navigation">
@@ -47,6 +59,17 @@
       </form>
     </div>
   </nav>
+  <div class="card-body">
+    <h5 class="card-title">Welcome <?php print_r($firstname)?> to test website</h5>
+    <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+    <a href="#" class="btn btn-primary">Go somewhere</a>
+  </div>
+
+  <?php 
+  } else {
+    header('Location: login.php');
+  }
+  ?>
 
   <body>
     <!-- Optional JavaScript -->

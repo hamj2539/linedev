@@ -43,7 +43,6 @@
         $birthday = $rs['birthday'];
         $age = $rs['age'];
         $picture = $rs['picture'];
-    }
 ?>
   
   <nav class="navbar navbar-expand-lg navbar navbar-dark bg-dark">
@@ -159,7 +158,11 @@
                 </div>
             </div>
     </div>
-`
+    <?php 
+        } else {
+            header('Location: login.php');
+        }
+    ?>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

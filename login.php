@@ -46,10 +46,6 @@
                 <label for="exampleInputPassword1">Password</label>
                 <input name="InputPassword" type="password" class="form-control" id="InputPassword" placeholder="Password">
             </div>
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
-            </div>
             <button type="submit" class="btn btn-primary btn-sm" style="margin-left:20px;margin-top:20px">Login</button>
             <a class="btn btn-primary btn-sm" href="register.php" role="button" style="margin-left:20px;margin-top:20px">Register</a>
         </form>
